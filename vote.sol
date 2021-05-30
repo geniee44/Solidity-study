@@ -76,9 +76,7 @@ contract Ballot {
         proposals[proposal].voteCount += sender.weight;
     }
 
-    function winningProposal() public view
-            returns (uint winningProposal_)
-    {
+    function winningProposal() public view returns (uint winningProposal_){
         uint winningVoteCount = 0;
         for (uint p = 0; p < proposals.length; p++) {
             if (proposals[p].voteCount > winningVoteCount) {
@@ -88,9 +86,7 @@ contract Ballot {
         }
     }
 
-    function winnerName() public view
-            returns (bytes32 winnerName_)
-    {
+    function winnerName() public view returns (bytes32 winnerName_){
         winnerName_ = proposals[winningProposal()].name;
     }
 }
